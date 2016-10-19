@@ -26,9 +26,9 @@ public class TabsAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         Bundle args = new Bundle();
         if (position == 0) {
-            args.putInt("tipo", 1);
+            args.putString("tipo", "classicos");
         } else if (position == 1) {
-            args.putInt("tipo", 2);
+            args.putString("tipo", "esportivos");
         }
         Fragment f = new CarrosFragment();
         f.setArguments(args);

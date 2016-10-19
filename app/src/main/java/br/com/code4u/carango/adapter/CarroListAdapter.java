@@ -16,8 +16,7 @@ import java.util.List;
 import br.com.code4u.carango.R;
 import br.com.code4u.carango.model.Carro;
 
-public class CarroListAdapter extends
-        RecyclerView.Adapter<CarroListAdapter.CarrosViewHolder> {
+public class CarroListAdapter extends RecyclerView.Adapter<CarroListAdapter.CarrosViewHolder> {
     private final List<Carro> carros;
     private final Context context;
     private CarroOnClickListener carroOnClickListener;
@@ -37,8 +36,7 @@ public class CarroListAdapter extends
     @Override
     public CarrosViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Infla a view do layout
-        View view = LayoutInflater.from(context).inflate(R.layout.item_carro, viewGroup,
-                false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_carro, viewGroup, false);
         return new CarrosViewHolder(view);
     }
 
