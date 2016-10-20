@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,16 +33,14 @@ public class CarroDetalheActivity extends AppCompatActivity {
         imagem = (ImageView) findViewById(R.id.imagem);
         desc = (TextView) findViewById(R.id.desc);
         if (getIntent() != null) {
-            try {
-                Carro carro = (Carro) getIntent().getSerializableExtra("carro");
-                InputStream ims = getAssets().open(carro.getFoto());
-                Drawable d = Drawable.createFromStream(ims, null);
-                imagem.setImageDrawable(d);
-                collapsingToolbar.setTitle(carro.getNome());
-                desc.setText(carro.getDesc());
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
+
+            Carro carro = (Carro) getIntent().getSerializableExtra("carro");
+            Picasso.with(this).load(carro.getFoto()).into(imagem);
+            collapsingToolbar.setTitle(carro.getNome());
+            desc.setText(carro.getDesc());
+
         }
     }
+
+
 }

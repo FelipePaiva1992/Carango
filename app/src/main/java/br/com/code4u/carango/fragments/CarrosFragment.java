@@ -88,6 +88,7 @@ public class CarrosFragment extends Fragment implements Callback<List<Carro>> {
     //Chamada caso de de sucesso na requisicao
     @Override
     public void onResponse(Call<List<Carro>> call, Response<List<Carro>> response) {
+        this.carros = response.body();
         recyclerView.setAdapter(new CarroListAdapter(getContext(), response.body(),
                 onClickCarro()));
     }
